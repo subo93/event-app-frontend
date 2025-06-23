@@ -1,19 +1,23 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+// src/App.js
+import { Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
-import './styles/main.scss';
+import CreateEventPage from './pages/CreateEventPage';
+import EventDetailPage from './pages/EventDetailPage';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/dashboard" element={<DashboardPage />} />
-      <Route path="*" element={<Navigate to="/login" replace />} />
-    </Routes>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/events/create" element={<CreateEventPage />} />
+        <Route path="/events/:id" element={<EventDetailPage />} />
+      </Routes>
+    </>
   );
 }
 
 export default App;
-
-

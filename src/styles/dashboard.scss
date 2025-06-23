@@ -1,0 +1,48 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #282c34;
+  color: white;
+  align-items: center;
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .user-icon img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+
+.dashboard-container {
+  padding: 2rem;
+}
+
+.events-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+  }
+
+  th {
+    background-color: #f4f4f4;
+  }
+
+  tr:hover {
+    background-color: #efefef;
+  }
+}
+
+button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
