@@ -6,6 +6,8 @@ export const loginUser = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const response = await axios.post('/auth/login', credentials);
+      // Save token to localStorage
+      localStorage.setItem('token', response.data.token);
       return response.data; // assume it returns { token, user }
     } catch (err) {
       return rejectWithValue(err.response.data);
@@ -27,6 +29,8 @@ const authSlice = createSlice({
       state.token = null;
       state.error = null;
       state.loading = false;
+      // Remove token from localStorage on logout
+      localStorage.removeItem('token');
     },
   },
   extraReducers: (builder) => {

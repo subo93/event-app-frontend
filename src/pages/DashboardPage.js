@@ -1,4 +1,3 @@
-// src/pages/DashboardPage.js
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -13,7 +12,14 @@ export default function DashboardPage() {
     async function fetchEvents() {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:8080/api/events');
+        const token = localStorage.getItem('token');
+        const response = await axios.get('http://localhost:8080/api/events', {
+          headers: {
+           // Authorization: `Bearer ${token}`,
+                       Authorization: `Bearer ${token}`,
+
+          },
+        });
         setEvents(response.data.content);
       } catch (err) {
         setError('Failed to load events');
